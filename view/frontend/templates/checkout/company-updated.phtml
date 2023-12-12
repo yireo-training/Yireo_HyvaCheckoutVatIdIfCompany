@@ -1,0 +1,24 @@
+<script>
+    document.addEventListener('hyva.checkout.company-changed', function(event) {
+        const companyValue = event.target.value;
+        const vatId = document.getElementById('shipping-vat_id');
+
+        if (companyValue.length > 0) {
+            vatId.removeAttribute('disabled');
+        } else {
+            vatId.setAttribute('disabled');
+        }
+    });
+
+    document.addEventListener('alpine:init', function() {
+        const company = document.getElementById('shipping-company');
+        const vatId = document.getElementById('shipping-vat_id');
+        const companyValue = company.value;
+
+        if (companyValue.length > 0) {
+            vatId.removeAttribute('disabled');
+        } else {
+            vatId.setAttribute('disabled');
+        }
+    });
+</script>
